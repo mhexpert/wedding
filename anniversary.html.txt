@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19 Beautiful Years of Love</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose-gold: #e8b4a0;
+            --cream-white: #faf8f5;
+            --blush-pink: #f7d1d1;
+            --deep-brown: #8b4513;
+            --soft-gold: #d4af37;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--cream-white);
+            color: var(--deep-brown);
+        }
+
+        /* Floating Hearts Animation */
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            color: var(--blush-pink);
+            font-size: 20px;
+            animation: float 8s infinite linear;
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--cream-white) 0%, var(--blush-pink) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+            animation: fadeInUp 2s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--deep-brown);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero .subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--rose-gold);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .photo-frame {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 8px solid var(--rose-gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: glow 3s ease-in-out infinite alternate;
+            margin: 2rem auto;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 20px 40px rgba(232, 180, 160, 0.3);
+            }
+            to {
+                box-shadow: 0 20px 60px rgba(232, 180, 160, 0.6);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--deep-brown);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '💖';
+            display: block;
+            font-size: 2rem;
+            margin-top: 1rem;
+        }
+
+        /* Love Story Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--rose-gold), var(--blush-pink));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border: 3px solid var(--blush-pink);
+        }
+
+        .timeline-year {
+            font-size: 2rem;
+            color: var(--rose-gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: var(--deep-brown);
+        }
+
+        /* Photo Gallery */
+        .gallery {
+            background: linear-gradient(45deg, var(--cream-white), var(--blush-pink));
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .photo-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(232, 180, 160, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .photo-card:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .photo-caption {
+            text-align: center;
+            color: white;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+        }
+
+        /* Message Section */
+        .message-section {
+            background: var(--cream-white);
+            text-align: center;
+        }
+
+        .envelope {
+            width: 400px;
+            height: 250px;
+            margin: 0 auto;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .envelope:hover {
+            transform: scale(1.05);
+        }
+
+        .envelope-back {
+            width: 100%;
+            height: 100%;
+            background: var(--rose-gold);
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .envelope-front {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: var(--blush-pink);
+            border-radius: 10px 10px 0 0;
+            transform-origin: top;
+            transition: transform 0.6s ease;
+        }
+
+        .envelope.open .envelope-front {
+            transform: rotateX(-180deg);
+        }
+
+        .message-content {
+            margin-top: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .message-content.show {
+            opacity: 1;
+        }
+
+        .typewriter {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--deep-brown);
+            line-height: 1.8;
+        }
+
+        /* Music Controls */
+        .music-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--rose-gold);
+            padding: 15px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .music-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--deep-brown);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .love-button {
+            background: linear-gradient(45deg, var(--rose-gold), var(--soft-gold));
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .love-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.5rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 60px;
+            }
+
+            .photo-frame {
+                width: 250px;
+                height: 250px;
+            }
+
+            .envelope {
+                width: 300px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts -->
+    <div class="hearts" id="hearts"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Celebrating 19 Beautiful Years</h1>
+            <p class="subtitle">Happy Anniversary Mom & Dad! ❤️</p>
+            <div class="photo-frame">
+                <img src="together.jpeg" alt="Mom and Dad Together" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjdkMWQxIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzhiNDUxMyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk1vbSAmIERhZCBUb2dldGhlcjwvdGV4dD48L3N2Zz4='">
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Story Timeline -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our Love Story</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2006</div>
+                        <div class="timeline-text">How it started 💍<br>Two hearts became one on a beautiful June day</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2010</div>
+                        <div class="timeline-text">Growing Together 🌿<br>Building dreams and making memories</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015</div>
+                        <div class="timeline-text">Family Blessings 👶<br>Love multiplied with little hands and feet</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-text">With Love, Always 💖<br>19 years strong and forever to go</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="section gallery">
+        <div class="container">
+            <h2 class="section-title">Beautiful Memories</h2>
+            <div class="photo-grid">
+                <div class="photo-card">
+                    <img src="together.jpeg" alt="Together" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjdkMWQxIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzhiNDUxMyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkJlYXV0aWZ1bCBUb2dldGhlcjwvdGV4dD48L3N2Zz4='">
+                    <div class="photo-overlay">
+                        <div class="photo-caption">Perfect Together ❤️<br>Soul mates forever</div>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="mom.jpeg" alt="Mom" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjdkMWQxIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzhiNDUxMyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkJlYXV0aWZ1bCBNb208L3RleHQ+PC9zdmc+'">
+                    <div class="photo-overlay">
+                        <div class="photo-caption">Amazing Mom 🌸<br>Grace and beauty personified</div>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="dad.jpeg" alt="Dad" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjdkMWQxIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzhiNDUxMyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPldvbmRlcmZ1bCBEYWQ8L3RleHQ+PC9zdmc+'">
+                    <div class="photo-overlay">
+                        <div class="photo-caption">Wonderful Dad 👨<br>Strength and love combined</div>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="mom_and_me.jpeg" alt="Mom and Me" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjdkMWQxIi/+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzhiNDUxMyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk1vbSAmIE1lPC90ZXh0Pjwvc3ZnPg=='">
+                    <div class="photo-overlay">
+                        <div class="photo-caption">Mom & Me 💕<br>Endless love and laughter</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Section -->
+    <section class="section message-section">
+        <div class="container">
+            <h2 class="section-title">A Message From Me</h2>
+            <div class="envelope" onclick="openEnvelope()">
+                <div class="envelope-back"></div>
+                <div class="envelope-front"></div>
+            </div>
+            <div class="message-content" id="messageContent">
+                <div class="typewriter" id="typewriter"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <button class="love-button">Made with Love by Your Child 💖</button>
+    </footer>
+
+    <!-- Music Controls -->
+    <div class="music-controls">
+        <button class="music-btn" onclick="toggleMusic()" id="musicBtn">🎵</button>
+    </div>
+
+    <!-- Hidden Audio -->
+    <audio id="bgMusic" loop>
+        <!-- You can add a romantic instrumental track here -->
+        <!-- <source src="romantic-music.mp3" type="audio/mpeg"> -->
+    </audio>
+
+    <script>
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💖';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+            document.getElementById('hearts').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        // Create hearts periodically
+        setInterval(createHeart, 800);
+
+        // Animate timeline on scroll
+        function animateTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            timelineItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (itemTop < windowHeight * 0.8) {
+                    item.classList.add('animate');
+                }
+            });
+        }
+
+        // Envelope opening functionality
+        function openEnvelope() {
+            const envelope = document.querySelector('.envelope');
+            const messageContent = document.getElementById('messageContent');
+            
+            envelope.classList.add('open');
+            
+            setTimeout(() => {
+                messageContent.classList.add('show');
+                typeMessage();
+            }, 800);
+        }
+
+        // Typewriter effect
+        function typeMessage() {
+            const message = "Dear Mom & Dad,\n\nThank you for showing me what true love looks like. Your journey together inspires me every day. Watching you both support each other through life's ups and downs has taught me the real meaning of commitment and partnership.\n\nYour love story is my favorite fairy tale - one that gets more beautiful with each passing year. Here's to many more years of laughter, adventures, and endless love!\n\nHappy 19th Anniversary!\n\nWith all my love,\nYour Child 💕";
+            
+            const typewriter = document.getElementById('typewriter');
+            let i = 0;
+            
+            function typeChar() {
+                if (i < message.length) {
+                    if (message.charAt(i) === '\n') {
+                        typewriter.innerHTML += '<br>';
+                    } else {
+                        typewriter.innerHTML += message.charAt(i);
+                    }
+                    i++;
+                    setTimeout(typeChar, 50);
+                }
+            }
+            
+            typeChar();
+        }
+
+        // Music controls
+        let musicPlaying = false;
+        const music = document.getElementById('bgMusic');
+        
+        function toggleMusic() {
+            const btn = document.getElementById('musicBtn');
+            
+            if (musicPlaying) {
+                music.pause();
+                btn.innerHTML = '🎵';
+                musicPlaying = false;
+            } else {
+                music.play().catch(() => {
+                    // Handle autoplay restrictions
+                    console.log('Music autoplay blocked by browser');
+                });
+                btn.innerHTML = '⏸️';
+                musicPlaying = true;
+            }
+        }
+
+        // Scroll animations
+        window.addEventListener('scroll', () => {
+            animateTimeline();
+        });
+
+        // Initialize animations on load
+        window.addEventListener('load', () => {
+            animateTimeline();
+        });
+
+        // Smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
